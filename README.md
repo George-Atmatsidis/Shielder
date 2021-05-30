@@ -23,6 +23,7 @@
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#todo">ToDo</a></li>
   </ol>
 </details>
 
@@ -68,3 +69,5 @@ Project Link: [https://github.com/George-Atmatsidis/Shielder](https://github.com
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
+## ToDo
+- [] Install graphical enviroment on Linux Server?
