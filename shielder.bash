@@ -51,11 +51,6 @@ sed -i "s/#LogLevel INFO/LogLevel VERBOSE/" /etc/ssh/sshd_config
 echo "[*] How many parallel ssh connections you want to allow?"
 read maxstartups
 sed -i 's/\(#MaxStartups\).*/\MaxStartups '$maxstartups'/' /etc/ssh/sshd_config
-#######Isshd Banner#####################
-echo "[*] Ssh_banner implementation"
-sudo echo 'Replace content with your ssh banner message' > /etc/ssh/ssh_banner
-sudo nano /etc/ssh/ssh_banner
-sed -i 's|#Banner none|Banner /etc/ssh/ssh_banner|' /etc/ssh/sshd_config
 ##################################
 echo '[*] Displaying the last login'
 sed -i "s/#PrintLastLog yes/PrintLastLog yes/" /etc/ssh/sshd_config
