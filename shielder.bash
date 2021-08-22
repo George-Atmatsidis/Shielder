@@ -7,7 +7,6 @@ So anyone with a bruteforce method can try a combination of passwords to gain ac
 One action we can take is to lock ssh root and create a new system user with sudo privileges.
 Give new username in the empty space below
 [IMPORTANT]: Use strong username/passcode for SSH
-[*] Backup of sshd_config automatically created"
 
 read newuser
 sudo adduser $newuser
