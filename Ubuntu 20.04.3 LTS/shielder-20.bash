@@ -76,6 +76,4 @@ echo "[*] Restart SSH Service"
 sudo systemctl restart ssh
 }
 
-if [[ $USER -eq "user" || $USER -eq "root" ]]; then
-  SecuringSsh
-fi
+
