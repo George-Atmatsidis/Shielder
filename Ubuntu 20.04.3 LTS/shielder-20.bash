@@ -75,3 +75,8 @@ sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/
 echo "Restart SSH Service"
 sudo systemctl restart ssh
 }
+#functions calls
+
+if [[ $USER -eq "user" || $USER -eq "root" ]]; then
+  SecureSsh
+fi
