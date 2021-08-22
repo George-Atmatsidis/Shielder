@@ -20,7 +20,7 @@ read useridle
 sudo sed -i 's/\(#ClientAliveInterval 0\).*/\ClientAliveInterval '$useridle'm/' /etc/ssh/sshd_config
 sudo sed -i 's/#ClientAliveCountMax 3/ClientAliveCountMax 0/' /etc/ssh/sshd_config
 
-echo "Disable Empty Passwords from ssh passcode connection"s"
+echo "Disable Empty Passwords from ssh passcode connections"
 sudo sed -i 's/\(#PermitEmptyPasswords no\).*/\PermitEmptyPasswords no/' /etc/ssh/sshd_config
 
 echo "Removing root login from ssh"
@@ -58,7 +58,7 @@ echo "Check User Specific Configuration Files"
 sudo sed -i 's/#StrictModes yes/StrictModes yes/' /etc/ssh/sshd_config
 
 echo "Prevent Privilege Escalation"
-sudo bash -c 'echo "UsePrivilegeSeparation sandbox" >> /etc/ssh/sshd_config'
+#sudo bash -c 'echo "UsePrivilegeSeparation sandbox" >> /etc/ssh/sshd_config'
 
 echo "Disable GSSAPI Authentication"
 sudo sed -i 's/#GSSAPIAuthentication no/GSSAPIAuthentication no/' /etc/ssh/sshd_config
