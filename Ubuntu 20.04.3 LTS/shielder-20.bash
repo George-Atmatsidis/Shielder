@@ -58,7 +58,7 @@ echo "Check User Specific Configuration Files"
 sudo sed -i 's/#StrictModes yes/StrictModes yes/' /etc/ssh/sshd_config
 
 echo "Prevent Privilege Escalation"
-#sudo bash -c 'echo "UsePrivilegeSeparation sandbox" >> /etc/ssh/sshd_config'
+sudo bash -c 'echo "UsePrivilegeSeparation sandbox" >> /etc/ssh/sshd_config'
 
 echo "Disable GSSAPI Authentication"
 sudo sed -i 's/#GSSAPIAuthentication no/GSSAPIAuthentication no/' /etc/ssh/sshd_config
