@@ -10,10 +10,10 @@ Give new username in the empty space below
 
 read newuser
 sudo adduser $newuser
-sudo passwd $newuser
-sudo usermod -aG wheel $newuser
+sudo usermod -aG sudo $newuser
 echo "[*] Adding user $newuser to ssh"
-sudo echo AllowUsers $newuser >> /etc/ssh/sshd_config
+sudo bash -c ' echo "AllowUsers $newuser" >> /etc/ssh/sshd_config'
+##############################
 echo "[*] What is the minimum idle time from user to logout SSH?
 [The time is canculated to minutes]"
 read useridle
@@ -66,13 +66,13 @@ sudo sed -i "s/GSSAPIAuthentication yes/GSSAPIAuthentication no/" /etc/ssh/sshd_
 echo '[*] Disable Kerberos Authentication'
 sudo sed -i "s/#KerberosAuthentication no/KerberosAuthentication no/" /etc/ssh/sshd_config
 ##################
-echo " [*] Use FIPS 140-2"
+echo "[*] Use FIPS 140-2"
 sudo sed -i "s/#RekeyLimit default none/Ciphers aes128-ctr,aes192-ctr,aes256-ctr/" /etc/ssh/sshd_config
-echo " [*] Restart SSH Service"
 ####################################
 echo '[*] Disable tunneled clear text passwords'
 sudo sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 #####################################
+echo "[*] Restart SSH Service"
 sudo systemctl restart ssh
 }
 
