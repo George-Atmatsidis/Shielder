@@ -72,8 +72,6 @@ sudo sed -i 's/#RekeyLimit default none/Ciphers aes128-ctr,aes192-ctr,aes256-ctr
 echo "[*] Disable tunneled clear text passwords"
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 #####################################
-echo '[*] Restart SSH Service'
+echo "Restart SSH Service"
 sudo systemctl restart ssh
 }
-
-
