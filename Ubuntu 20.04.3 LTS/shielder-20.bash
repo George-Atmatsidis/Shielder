@@ -87,9 +87,9 @@ sudo sed -i 's/#RekeyLimit default none/Ciphers aes128-ctr,aes192-ctr,aes256-ctr
 echo "[*] Disable tunneled clear text passwords"
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 #####################################
-#echo "Open from your LocalMachine terminal(CLI) and copy paste the following command:
-#ssh-keygen && ssh-copy-id -i ~/.ssh/id_rsa.pub $newuser@$(curl ifconfig.me)"
-#read -p "When you have done please hit Enter"
+echo "Open from your LocalMachine terminal(CLI) and copy paste the following command:
+ssh-keygen && ssh-copy-id -i ~/.ssh/id_rsa.pub $newuser@$(curl ifconfig.me)"
+read -p "When you have done please hit Enter"
 #####################################
 echo "[*] Restart SSH Service"
 sudo systemctl restart ssh
