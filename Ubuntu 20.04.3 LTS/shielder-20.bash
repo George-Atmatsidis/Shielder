@@ -13,9 +13,7 @@ sudo adduser $newuser
 sudo passwd $newuser
 sudo usermod -aG sudo $newuser
 echo "[*] Adding user $newuser to ssh"
-sudo -i
-echo "AllowUsers $newuser" >> /etc/ssh/sshd_config
-exit
+sudo -i echo "AllowUsers $newuser" >> /etc/ssh/sshd_config
 ##################################
 echo "[*] Removing root login from ssh"
 sudo sed -i 's/\(#PermitRootLogin prohibit-password\).*/\PermitRootLogin no/' /etc/ssh/sshd_config
