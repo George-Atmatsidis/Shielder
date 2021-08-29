@@ -88,7 +88,7 @@ echo "[*] Disable tunneled clear text passwords"
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 #####################################
 #echo "Open from your LocalMachine terminal(CLI) and copy paste the following command:
-ssh-keygen && ssh-copy-id -i ~/.ssh/id_rsa.pub $newuser@$(curl ifconfig.me)"
+#ssh-keygen && ssh-copy-id -i ~/.ssh/id_rsa.pub $newuser@$(curl ifconfig.me)"
 #read -p "When you have done please hit Enter"
 #####################################
 echo "[*] Restart SSH Service"
