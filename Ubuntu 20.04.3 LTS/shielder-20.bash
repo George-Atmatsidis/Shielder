@@ -31,9 +31,6 @@ sudo sed -i 's/\(#PermitEmptyPasswords no\).*/\PermitEmptyPasswords no/' /etc/ss
 echo "[*] Removing root login from ssh"
 sudo sed -i 's/\(#PermitRootLogin prohibit-password\).*/\PermitRootLogin no/' /etc/ssh/sshd_config
 ####################################
-echo "[*] Disable tunneled clear text passwords"
-sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-#####################################
 echo "[*] Disable Forwarding"
 sudo sed -i 's/\(X11Forwarding yes\).*/\X11Forwarding no/' /etc/ssh/sshd_config
 sudo sed -i 's/\(#AllowTcpForwarding yes\).*/\AllowTcpForwarding no/' /etc/ssh/sshd_config
@@ -76,7 +73,7 @@ echo "[*] Check User Specific Configuration Files"
 sudo sed -i 's/#StrictModes yes/StrictModes yes/' /etc/ssh/sshd_config
 ##################################
 echo "[*] Prevent Privilege Escalation"
-sudo bash -c "echo "UsePrivilegeSeparation sandbox" >> /etc/ssh/sshd_config"
+sudo bash -c "echo 'UsePrivilegeSeparation sandbox' >> /etc/ssh/sshd_config"
 ##################################
 echo "[*] Disable GSSAPI Authentication"
 sudo sed -i 's/#GSSAPIAuthentication no/GSSAPIAuthentication no/' /etc/ssh/sshd_config
