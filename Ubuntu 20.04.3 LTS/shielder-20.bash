@@ -94,9 +94,21 @@ echo "[*] Restart SSH Service"
 sudo systemctl restart ssh
 }
 
+GoogleTwoFa(){
+  echo "[*] Installing the Google Authenticator PAM module"
+  sudo apt install -y libpam-google-authenticator
+  echo "[*] Configuring SSH - To make SSH use the Google Authenticator PAM module,the following line added to the /etc/pam.d/sshd file:"
+  auth required pam_google_authenticator.so
+  echo "[*] Restart the sshd daemon"
+  sudo systemctl restart sshd.service
+  echo "[*] Modify /etc/ssh/sshd_config – change ChallengeResponseAuthentication from no to yes"
+  sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/" /etc/ssh/sshd_config
+  google-authenticator
 
+}
 #functions calls
 
 if [[ $USER -eq "user" || $USER -eq "root" ]]; then
   SecureSsh
 fi
+GoogleTwoFa
