@@ -102,7 +102,7 @@ GoogleTwoFa(){
   echo "[*] Restart the sshd daemon"
   sudo systemctl restart sshd.service
   echo "[*] Modify /etc/ssh/sshd_config – change ChallengeResponseAuthentication from no to yes"
-  sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/" /etc/ssh/sshd_config
+  sudo sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/" /etc/ssh/sshd_config
   google-authenticator
 
 }
