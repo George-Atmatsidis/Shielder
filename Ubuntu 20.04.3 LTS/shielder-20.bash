@@ -10,7 +10,6 @@ Give new username in the empty space below
 
 read newuser
 sudo adduser $newuser
-sudo passwd $newuser
 sudo usermod -aG sudo $newuser
 echo "[*] Adding user $newuser to ssh"
 sudo bash -c "echo 'AllowUsers $newuser' >> /etc/ssh/sshd_config"
@@ -98,12 +97,13 @@ GoogleTwoFa(){
   echo "[*] Installing the Google Authenticator PAM module"
   sudo apt install -y libpam-google-authenticator
   echo "[*] Configuring SSH - To make SSH use the Google Authenticator PAM module,the following line added to the /etc/pam.d/sshd file:"
-  auth required pam_google_authenticator.so
+  sudo bash -c "echo 'auth required pam_google_authenticator.so' >> /etc/pam.d/sshd >>"
   echo "[*] Restart the sshd daemon"
   sudo systemctl restart sshd.service
   echo "[*] Modify /etc/ssh/sshd_config – change ChallengeResponseAuthentication from no to yes"
   sudo sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/" /etc/ssh/sshd_config
-  google-authenticator
+  echo "[*] Installing Google 2FA for $newuser"
+  su $newuser google-authenticator
 
 }
 #functions calls
