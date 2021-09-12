@@ -103,7 +103,7 @@ GoogleTwoFa(){
   echo "[*] Modify /etc/ssh/sshd_config – change ChallengeResponseAuthentication from no to yes"
   sudo sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/" /etc/ssh/sshd_config
   echo "[*] Installing Google 2FA for $newuser"
-  su $newuser google-authenticator
+  su $newuser -c google-authenticator
 
 }
 #functions calls
