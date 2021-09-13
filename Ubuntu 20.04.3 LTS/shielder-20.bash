@@ -14,15 +14,8 @@ sudo usermod -aG sudo $newuser
 echo "[*] Adding user $newuser to ssh"
 sudo bash -c "echo 'AllowUsers $newuser' >> /etc/ssh/sshd_config"
 ##################################
-echo "[*] What is the minimum idle time from user to logout SSH?
-[The time is canculated to minutes]"
-read useridle
-while (("$useridle" <= 0))
-do
-  echo "You cant use 0 or negative value.Give value > 0"
-  read useridle
-done
-sudo sed -i 's/\(#ClientAliveInterval 0\).*/\ClientAliveInterval '$useridle'm/' /etc/ssh/sshd_config
+echo "[*] Set idle time to 1minute"
+sudo sed -i 's/\(#ClientAliveInterval 0\).*/\ClientAliveInterval 1m/' /etc/ssh/sshd_config
 sudo sed -i 's/#ClientAliveCountMax 3/ClientAliveCountMax 0/' /etc/ssh/sshd_config
 ##################################
 echo "[*] Disable Empty Passwords from ssh passcode connection's"
@@ -34,14 +27,8 @@ echo "[*] Disable Forwarding"
 sudo sed -i 's/\(X11Forwarding yes\).*/\X11Forwarding no/' /etc/ssh/sshd_config
 sudo sed -i 's/\(#AllowTcpForwarding yes\).*/\AllowTcpForwarding no/' /etc/ssh/sshd_config
 ##################################
-echo "[*] What is a max tries for user passcode in SSH?"
-read maxtries
-while (("$maxtries" <= 0))
-do
-  echo "You cant use 0 or negative value.Give value > 0"
-  read maxtries
-done
-sudo sed -i 's/\(#MaxAuthTries 6\).*/\MaxAuthTries '$maxtries'/' /etc/ssh/sshd_config
+echo "[*] Set maxauth trie's to 2?"
+sudo sed -i 's/\(#MaxAuthTries 6\).*/\MaxAuthTries 2/' /etc/ssh/sshd_config
 ##################################
 echo "[*] Set A Login Grace Timeout"
 sudo sed -i 's/#LoginGraceTime 2m/LoginGraceTime 1m/' /etc/ssh/sshd_config
