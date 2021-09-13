@@ -80,8 +80,8 @@ sudo sed -i 's/#GSSAPIAuthentication no/GSSAPIAuthentication no/' /etc/ssh/sshd_
 echo "[*] Disable Kerberos Authentication"
 sudo sed -i 's/#KerberosAuthentication no/KerberosAuthentication no/' /etc/ssh/sshd_config
 ##################
-echo "[*] Use FIPS 140-2"
-sudo sed -i 's/#RekeyLimit default none/Ciphers aes128-ctr,aes192-ctr,aes256-ctr/' /etc/ssh/sshd_config
+#echo "[*] Use FIPS 140-2"
+#sudo sed -i 's/#RekeyLimit default none/Ciphers aes128-ctr,aes192-ctr,aes256-ctr/' /etc/ssh/sshd_config
 ####################################
 echo "[*] Disable tunneled clear text passwords"
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
