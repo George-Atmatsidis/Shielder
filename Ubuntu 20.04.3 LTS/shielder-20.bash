@@ -27,7 +27,7 @@ echo "[*] Disable Forwarding"
 sudo sed -i 's/\(X11Forwarding yes\).*/\X11Forwarding no/' /etc/ssh/sshd_config
 sudo sed -i 's/\(#AllowTcpForwarding yes\).*/\AllowTcpForwarding no/' /etc/ssh/sshd_config
 ##################################
-echo "[*] Set maxauth trie's to 2?"
+echo "[*] Set maxauth trie's to 2"
 sudo sed -i 's/\(#MaxAuthTries 6\).*/\MaxAuthTries 2/' /etc/ssh/sshd_config
 ##################################
 echo "[*] Set A Login Grace Timeout"
